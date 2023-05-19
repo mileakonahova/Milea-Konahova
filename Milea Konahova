@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+  <title>Button Demo</title>
+
+  <script>
+
+    function changeText(buttonId) {
+
+      var text = document.getElementById("myText");
+
+      var button = document.getElementById(buttonId);
+
+      var newText = "";
+
+      if (button.getAttribute("data-count") == null) {
+
+        button.setAttribute("data-count", "1");
+
+      } else {
+
+        var count = parseInt(button.getAttribute("data-count"));
+
+        count++;
+
+        button.setAttribute("data-count", count.toString());
+
+      }
+
+      var count = parseInt(button.getAttribute("data-count"));
+
+      switch (count) {
+
+        case 1:
+
+          newText = "Text 1";
+
+          break;
+
+        case 2:
+
+          newText = "Text 2";
+
+          break;
+
+        case 3:
+
+          newText = "Text 3";
+
+          break;
+
+        default:
+
+          newText = "Button wurde bereits dreimal geklickt!";
+
+          button.disabled = true;
+
+          break;
+
+      }
+
+      text.innerHTML = newText;
+
+    }
+
+  </script>
+
+</head>
+
+<body>
+
+  <h1>Milea Konahova</h1>
+
+  <p id="myText">Anfangstext</p>
+
+  <button id="button1" onclick="changeText('button1')">Button 1</button>
+
+  <button id="button2" onclick="changeText('button2')">Button 2</button>
+
+</body>
+
+</html>
+
